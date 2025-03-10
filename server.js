@@ -1,7 +1,7 @@
 const app = require("./app");
 const logger = require("./utils/logger");
 
-const port = process.env.PORT || 5001; // Changed port number to 5001
+const port =  5000; // Changed port number to 5001
 
 const server = app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
