@@ -3,9 +3,12 @@ const logger = require("./utils/logger");
 
 const port =  5000; // Changed port number to 5001
 
+
 const server = app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
+app.get("/", (req, res) => res.send("Express on Vercel"));
 
 server.on('error', (err) => {
   if (err.code === 'EADDRINUSE') {
