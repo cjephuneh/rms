@@ -8,7 +8,9 @@ const server = app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
 
-app.get("/", (req, res) => res.send("Express on Vercel"));
+app.get('/', (req, res) => {
+  res.send('Hello World')
+})
 
 server.on('error', (err) => {
   if (err.code === 'EADDRINUSE') {
