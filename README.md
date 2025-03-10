@@ -55,9 +55,13 @@ cd restaurant-management-backend
 **Response:**
 ```json
 {
-  "token": "your_jwt_token",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3Y2VjMTljYWNhODlmYWQ4OWRjMDViMSIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTc0MTYxOTg4NCwiZXhwIjoxNzQxNzA2Mjg0fQ.VekxllNpnvyE-eS8jHAWN8XEL8nsgYV-GTewaMGCaso",
   "role": "customer",
-  "user": { "name": "John Doe", "email": "john@example.com", "role": "customer" }
+  "user": {
+    "name": "John Doe",
+    "email": "john@example.com",
+    "role": "customer"
+  }
 }
 ```
 
