@@ -6,6 +6,9 @@ const { connectDB } = require("./config/db");
 
 const app = express();
 
+// Connect to the database
+connectDB();
+
 // Middleware
 app.use(express.json());
 security(app);
@@ -24,7 +27,5 @@ app.use("/api/orders", require("./routes/order.routes"));
 app.use("/api/reviews", require("./routes/review.routes"));
 app.use("/api/payments", require("./routes/payment.routes"));
 app.use("/api/qrcode", require("./routes/qr.routes"));
-
-
 
 module.exports = app;
