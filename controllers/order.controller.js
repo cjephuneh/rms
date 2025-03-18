@@ -44,13 +44,36 @@ exports.getAllOrders = async (req, res) => {
   }
 };
 
-// 🔄 Update order status (Kitchen/Delivery Staff)
+// // 🔄 Update order status (Kitchen/Delivery Staff)
+// exports.updateOrderStatus = async (req, res) => {
+//   try {
+//     const { orderId } = req.params;
+//     const { status } = req.body;
+
+//     if (!["pending", "preparing", "ready", "delivered"].includes(status)) {
+//       return res.status(400).json({ error: "Invalid status" });
+//     }
+
+//     const order = await Order.findById(orderId);
+//     if (!order) return res.status(404).json({ error: "Order not found" });
+
+//     order.status = status;
+//     await order.save();
+
+//     res.json({ message: "Order status updated", order });
+//   } catch (error) {
+//     res.status(500).json({ error: "Failed to update order status" });
+//   }
+// };
+
+
+// 🔄 Update order status (Admin, Waiter, Rider)
 exports.updateOrderStatus = async (req, res) => {
   try {
     const { orderId } = req.params;
     const { status } = req.body;
 
-    if (!["pending", "preparing", "ready", "delivered"].includes(status)) {
+    if (!["waiting", "preparing", "ready", "delivered", "canceled"].includes(status)) {
       return res.status(400).json({ error: "Invalid status" });
     }
 
