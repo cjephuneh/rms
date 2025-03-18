@@ -274,6 +274,87 @@ This API provides endpoints for restaurant management including user authenticat
   }
   ```
 
+## 👥 Staff Management
+
+### Get Staff by Role
+- **Method:** `GET`
+- **Endpoint:** `/api/team/role/:role`
+- **Access:** Admin only
+- **Description:** Get all staff members by role with performance metrics
+- **Parameters:**
+  - `role`: Either 'waiter', 'kitchen', or 'delivery'
+- **Headers:** `Authorization: Bearer <token>`
+- **Response:**
+  ```json
+  [
+    {
+      "_id": "waiter_id",
+      "name": "Waiter Name",
+      "email": "waiter@example.com",
+      "role": "waiter",
+      "userTitle": "Head Waiter",
+      "startDate": "2023-01-15T10:30:00.000Z",
+      "metrics": {
+        "ordersTaken": 125,
+        "tablesServed": 15,
+        "ordersTotal": 3750.50,
+        "avgServingTime": 12.5,
+        "overallTips": 450
+      }
+    }
+  ]
+  ```
+
+### Record Working Hours for Kitchen Staff
+- **Method:** `POST`
+- **Endpoint:** `/api/team/:userId/hours`
+- **Access:** Admin only
+- **Description:** Record working hours for kitchen staff
+- **Headers:** `Authorization: Bearer <token>`
+- **Request Body:**
+  ```json
+  {
+    "hoursWorked": 8.5,
+    "date": "2023-07-20"
+  }
+  ```
+- **Response:**
+  ```json
+  {
+    "message": "Working hours recorded successfully",
+    "data": {
+      "staffId": "chef_id",
+      "hoursWorked": 8.5,
+      "date": "2023-07-20"
+    }
+  }
+  ```
+
+### Record Tips for Waiters
+- **Method:** `POST`
+- **Endpoint:** `/api/team/:userId/tips`
+- **Access:** Admin and Waiters
+- **Description:** Record tips received by waiters
+- **Headers:** `Authorization: Bearer <token>`
+- **Request Body:**
+  ```json
+  {
+    "amount": 25.50,
+    "orderId": "order_id"
+  }
+  ```
+- **Response:**
+  ```json
+  {
+    "message": "Tips recorded successfully",
+    "data": {
+      "waiterId": "waiter_id",
+      "amount": 25.50,
+      "orderId": "order_id"
+    }
+  }
+  ```
+
 ## 🍔 Menu Management
 
 ### Get Menu

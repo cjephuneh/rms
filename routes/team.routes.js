@@ -4,7 +4,10 @@ const {
   addTeamMember, 
   getStaffStats, 
   updateTeamMember,
-  deleteTeamMember 
+  deleteTeamMember,
+  getStaffByRole,
+  recordWorkingHours,
+  recordTips 
 } = require("../controllers/team.controller");
 const authMiddleware = require("../middleware/auth.middleware");
 const roleMiddleware = require("../middleware/role.middleware");
@@ -16,5 +19,10 @@ router.post("/", authMiddleware, roleMiddleware(["admin"]), addTeamMember);
 router.get("/:userId/stats", authMiddleware, roleMiddleware(["admin"]), getStaffStats);
 router.put("/:userId", authMiddleware, roleMiddleware(["admin"]), updateTeamMember);
 router.delete("/:userId", authMiddleware, roleMiddleware(["admin"]), deleteTeamMember);
+
+// New staff-specific routes
+router.get("/role/:role", authMiddleware, roleMiddleware(["admin"]), getStaffByRole);
+router.post("/:userId/hours", authMiddleware, roleMiddleware(["admin"]), recordWorkingHours);
+router.post("/:userId/tips", authMiddleware, roleMiddleware(["admin", "waiter"]), recordTips);
 
 module.exports = router;

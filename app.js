@@ -3,6 +3,7 @@ const express = require("express");
 const logger = require("./utils/logger");
 const security = require("./config/security");
 const { connectDB } = require("./config/db");
+const { initWebSocket } = require("./services/notification.service");
 
 const app = express();
 
@@ -27,5 +28,10 @@ app.use("/api/orders", require("./routes/order.routes"));
 app.use("/api/reviews", require("./routes/review.routes"));
 app.use("/api/payments", require("./routes/payment.routes"));
 app.use("/api/qrcode", require("./routes/qr.routes"));
+app.use("/api/admin", require("./routes/admin.routes"));
+app.use("/api/tables", require("./routes/table.routes"));
+app.use("/api/team", require("./routes/team.routes"));
+app.use("/api/reservations", require("./routes/reservation.routes"));
+app.use("/api/categories", require("./routes/category.routes"));
 
 module.exports = app;

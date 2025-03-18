@@ -5,7 +5,19 @@ const UserSchema = new mongoose.Schema({
   name: { type: String, required: true },
   email: { type: String, unique: true, required: true },
   password: { type: String, required: true },
-  role: { type: String, enum: ["customer", "waitstaff", "admin"], default: "customer" },
+  role: { 
+    type: String, 
+    enum: ["customer", "waiter", "kitchen", "delivery", "admin"], 
+    default: "customer" 
+  },
+  userTitle: { type: String },
+  permissions: {
+    takeOrders: { type: Boolean, default: false },
+    viewMenu: { type: Boolean, default: true },
+    manageMenu: { type: Boolean, default: false },
+    manageTables: { type: Boolean, default: false },
+  },
+  startDate: { type: Date, default: Date.now },
   createdAt: { type: Date, default: Date.now }
 });
 

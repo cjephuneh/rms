@@ -1,17 +1,21 @@
 const app = require("./app");
 const logger = require("./utils/logger");
+const { initWebSocket } = require("./services/notification.service");
 
-const port = process.env.PORT || 8080; // Use Azure's PORT env variable or default to 8080
+const port = process.env.PORT || 8080;
 
 const server = app.listen(port, () => {
   logger.info(`Server is running on port ${port}`);
 });
 
+// Initialize WebSocket server for real-time notifications
+initWebSocket(server);
+
 app.get('/', (req, res) => {
-  res.send('Hello World');
+  res.send('Restaurant Management System API');
 });
 
-// Remove the error handling for EADDRINUSE as it's not needed in production
+// Error handling
 server.on('error', (err) => {
   logger.error('Server error:', err);
   throw err;
