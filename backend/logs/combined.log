@@ -1,0 +1,11 @@
+{"level":"info","message":"POST /api/auth/register - ::1","timestamp":"2025-03-10T10:40:27.906Z"}
+{"level":"info","message":"POST /api/auth/register - ::1","timestamp":"2025-03-10T15:17:52.080Z"}
+{"level":"info","message":"POST /api/auth/login - ::1","timestamp":"2025-03-10T15:18:03.998Z"}
+{"level":"info","message":"POST /api/auth/login - ::1","timestamp":"2025-03-10T15:18:42.990Z"}
+{"level":"info","message":"GET /api/users/profile - ::1","timestamp":"2025-03-10T15:20:44.122Z"}
+{"level":"info","message":"GET /api/users/profile - ::1","timestamp":"2025-03-10T15:21:26.353Z"}
+{"level":"info","message":"Server is running on port 8080","timestamp":"2025-03-11T12:32:16.052Z"}
+{"level":"info","message":"Server is running on port 8080","timestamp":"2025-03-12T08:42:41.987Z"}
+{"level":"info","message":"Server is running on port 8080","timestamp":"2025-03-17T19:08:17.283Z"}
+{"level":"info","message":"Server is running on port 8080","timestamp":"2025-03-27T08:09:56.064Z"}
+{"level":"info","message":"Server is running on port 8080","timestamp":"2025-03-27T08:12:37.031Z"}
