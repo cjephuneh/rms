@@ -4,7 +4,12 @@
      {
       "src": "app.js",
       "use": "@vercel/node",
-      "config": { "includeFiles": ["dist/**"] }
+      "config": { 
+        "includeFiles": ["dist/**"],
+        "env": {
+          "VERCEL": "1"
+        }
+      }
      }
     ],
     "routes": [
@@ -13,4 +18,4 @@
       "dest": "app.js"
      }
     ]
-   }
+}

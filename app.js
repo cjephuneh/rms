@@ -1,9 +1,7 @@
 require("dotenv").config();
 const express = require("express");
-const logger = require("./utils/logger");
 const security = require("./config/security");
 const { connectDB } = require("./config/db");
-const { initWebSocket } = require("./services/notification.service");
 
 const app = express();
 
@@ -13,12 +11,6 @@ connectDB();
 // Middleware
 app.use(express.json());
 security(app);
-
-// Logging
-app.use((req, res, next) => {
-  logger.info(`${req.method} ${req.url} - ${req.ip}`);
-  next();
-});
 
 // Routes
 app.use("/api/auth", require("./routes/auth.routes"));
